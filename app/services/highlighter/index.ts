@@ -638,7 +638,7 @@ export class HighlighterService extends PersistentStatefulService<IHighligherSta
         // path.join(CLIP_DIR, '2021-06-08 16-40-14.mp4'),
         // path.join(CLIP_DIR, '2021-05-25 08-56-03.mp4'),
       ];
-
+      this.removeStream('demo123');
       await this.addStream({
         id: 'demo123',
         game: 'Fortnite',
