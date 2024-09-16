@@ -7,7 +7,7 @@ const AI_PATH_DEV = '<path to app.py>/app.py'; // path to app.py of the highligh
 const VENV_PATH = '<path to venv>/.venv/bin/python'; // path to python in virtual environment
 
 export function getHighlighterProcess(videoUri: string) {
-  const env = 'dev' as 'prod' | 'dev';
+  const env = 'prod' as 'prod' | 'dev';
 
   if (env === 'dev') {
     return spawn(VENV_PATH, [AI_PATH_DEV, videoUri]);
