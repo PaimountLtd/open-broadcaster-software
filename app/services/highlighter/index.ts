@@ -638,6 +638,76 @@ export class HighlighterService extends PersistentStatefulService<IHighligherSta
         // path.join(CLIP_DIR, '2021-06-08 16-40-14.mp4'),
         // path.join(CLIP_DIR, '2021-05-25 08-56-03.mp4'),
       ];
+
+      [];
+
+      const newAiClips: {
+        path: string;
+        aiClipInfo: IAiClipInfo;
+        startTime: number;
+        endTime: number;
+      }[] = [
+        {
+          path: getSharedResource('test/replay123.mp4'),
+          aiClipInfo: { moments: [{ type: 'kill' }] },
+          startTime: 0,
+          endTime: 10,
+        },
+        {
+          path: getSharedResource('test/replay123.mp4'),
+          aiClipInfo: { moments: [{ type: 'kill' }] },
+          startTime: 20,
+          endTime: 30,
+        },
+        {
+          path: getSharedResource('test/replay123.mp4'),
+          aiClipInfo: { moments: [{ type: 'kill' }] },
+          startTime: 40,
+          endTime: 50,
+        },
+        {
+          path: getSharedResource('test/replay123.mp4'),
+          aiClipInfo: { moments: [{ type: 'kill' }] },
+          startTime: 60,
+          endTime: 70,
+        },
+        {
+          path: getSharedResource('test/replay123.mp4'),
+          aiClipInfo: { moments: [{ type: 'kill' }] },
+          startTime: 80,
+          endTime: 90,
+        },
+        {
+          path: getSharedResource('test/replay123.mp4'),
+          aiClipInfo: { moments: [{ type: 'kill' }] },
+          startTime: 100,
+          endTime: 110,
+        },
+        {
+          path: getSharedResource('test/replay123.mp4'),
+          aiClipInfo: { moments: [{ type: 'kill' }] },
+          startTime: 120,
+          endTime: 130,
+        },
+        {
+          path: getSharedResource('test/replay123.mp4'),
+          aiClipInfo: { moments: [{ type: 'kill' }] },
+          startTime: 140,
+          endTime: 150,
+        },
+        {
+          path: getSharedResource('test/replay123.mp4'),
+          aiClipInfo: { moments: [{ type: 'kill' }] },
+          startTime: 160,
+          endTime: 170,
+        },
+        {
+          path: getSharedResource('test/replay123.mp4'),
+          aiClipInfo: { moments: [{ type: 'kill' }] },
+          startTime: 180,
+          endTime: 190,
+        },
+      ];
       this.removeStream('demo123');
       await this.addStream({
         id: 'demo123',
@@ -646,8 +716,9 @@ export class HighlighterService extends PersistentStatefulService<IHighligherSta
         date: '1726234396290',
         state: { type: 'detection-finished', progress: 0 },
       });
-      const newClips = [getSharedResource('replay123.mp4')].map(path => ({ path }));
+      const newClips = [getSharedResource('test/replay123.mp4')].map(path => ({ path }));
       this.addClips(newClips, 'demo123', 'Manual');
+      this.addAiClips(newAiClips, { id: 'demo123' });
     } else {
       let streamStarted = false;
       let aiRecordingInProgress = false;
