@@ -639,9 +639,200 @@ export class HighlighterService extends PersistentStatefulService<IHighligherSta
         // path.join(CLIP_DIR, '2021-05-25 08-56-03.mp4'),
       ];
 
-      [];
+      const sDemoManual: { path: string; startTime: number; endTime: number }[] = [
+        {
+          path: getSharedResource('s/s001.mp4'),
+          // aiClipInfo: { moments: [{ type: 'dropping in' }] },
+          startTime: 0,
+          endTime: 10,
+        },
+        {
+          path: getSharedResource('s/s002.mp4'),
+          // aiClipInfo: { moments: [{ type: 'dropping in' }] },
+          startTime: 20,
+          endTime: 30,
+        },
+        {
+          path: getSharedResource('s/s004.mp4'),
+          startTime: 60,
+          endTime: 70,
+        },
+        {
+          path: getSharedResource('s/s008.mp4'),
+          startTime: 140,
+          endTime: 150,
+        },
+        {
+          path: getSharedResource('s/s010.mp4'),
+          startTime: 180,
+          endTime: 190,
+        },
+      ];
 
-      const newAiClips: {
+      const sDemoAi: {
+        path: string;
+        aiClipInfo: IAiClipInfo;
+        startTime: number;
+        endTime: number;
+      }[] = [
+        // {
+        //   path: getSharedResource('s/s001.mp4'),
+        //   aiClipInfo: { moments: [{ type: 'dropping in' }] },
+        //   startTime: 0,
+        //   endTime: 10,
+        // },
+        // {
+        //   path: getSharedResource('s/s002.mp4'),
+        //   aiClipInfo: { moments: [{ type: 'dropping in' }] },
+        //   startTime: 20,
+        //   endTime: 30,
+        // },
+        {
+          path: getSharedResource('s/s003.mp4'),
+          aiClipInfo: { moments: [{ type: 'deploy' }] },
+          startTime: 40,
+          endTime: 50,
+        },
+        // {
+        //   path: getSharedResource('s/s004.mp4'),
+        //   aiClipInfo: { moments: [{ type: 'manual' }] },
+        //   startTime: 60,
+        //   endTime: 70,
+        // },
+        {
+          path: getSharedResource('s/s005.mp4'),
+          aiClipInfo: { moments: [{ type: 'knocked' }] },
+          startTime: 80,
+          endTime: 90,
+        },
+        {
+          path: getSharedResource('s/s006.mp4'),
+          aiClipInfo: { moments: [{ type: 'knocked' }, { type: 'kill' }] },
+          startTime: 100,
+          endTime: 110,
+        },
+        {
+          path: getSharedResource('s/s007.mp4'),
+          aiClipInfo: { moments: [{ type: 'knocked' }] },
+          startTime: 120,
+          endTime: 130,
+        },
+        // {
+        //   path: getSharedResource('s/s008.mp4'),
+        //   aiClipInfo: { moments: [{ type: 'manual' }] },
+        //   startTime: 140,
+        //   endTime: 150,
+        // },
+        {
+          path: getSharedResource('s/s009.mp4'),
+          aiClipInfo: { moments: [{ type: 'knocked' }] },
+          startTime: 160,
+          endTime: 170,
+        },
+        // {
+        //   path: getSharedResource('s/s010.mp4'),
+        //   aiClipInfo: { moments: [{ type: 'kill' }] },
+        //   startTime: 180,
+        //   endTime: 190,
+        // },
+        {
+          path: getSharedResource('s/s011.mp4'),
+          aiClipInfo: { moments: [{ type: 'kill' }] },
+          startTime: 200,
+          endTime: 210,
+        },
+        {
+          path: getSharedResource('s/s012.mp4'),
+          aiClipInfo: {
+            moments: [
+              { type: 'knocked' },
+              { type: 'knocked' },
+              { type: 'kill' },
+              { type: 'knocked' },
+            ],
+          },
+          startTime: 220,
+          endTime: 230,
+        },
+        {
+          path: getSharedResource('s/s013.mp4'),
+          aiClipInfo: { moments: [{ type: 'kill' }] },
+          startTime: 240,
+          endTime: 250,
+        },
+        {
+          path: getSharedResource('s/s014.mp4'),
+          aiClipInfo: { moments: [{ type: 'knocked' }] },
+          startTime: 260,
+          endTime: 270,
+        },
+        {
+          path: getSharedResource('s/s015.mp4'),
+          aiClipInfo: { moments: [{ type: 'kill' }] },
+          startTime: 280,
+          endTime: 290,
+        },
+        {
+          path: getSharedResource('s/s016.mp4'),
+          aiClipInfo: {
+            moments: [
+              { type: 'knocked' },
+              { type: 'knocked' },
+              { type: 'knocked' },
+              { type: 'knocked' },
+            ],
+          },
+          startTime: 310,
+          endTime: 310,
+        },
+        {
+          path: getSharedResource('s/s017.mp4'),
+          aiClipInfo: { moments: [{ type: 'kill' }, { type: 'kill' }] },
+          startTime: 320,
+          endTime: 330,
+        },
+        {
+          path: getSharedResource('s/s018.mp4'),
+          aiClipInfo: { moments: [{ type: 'kill' }] },
+          startTime: 340,
+          endTime: 350,
+        },
+        {
+          path: getSharedResource('s/s019.mp4'),
+          aiClipInfo: { moments: [{ type: 'knocked' }] },
+          startTime: 360,
+          endTime: 370,
+        },
+        {
+          path: getSharedResource('s/s020.mp4'),
+          aiClipInfo: { moments: [{ type: 'kill' }] },
+          startTime: 380,
+          endTime: 390,
+        },
+        {
+          path: getSharedResource('s/s021.mp4'),
+          aiClipInfo: { moments: [{ type: 'knocked' }, { type: 'victory' }] },
+          startTime: 400,
+          endTime: 410,
+        },
+      ];
+
+      this.removeStream('demo_s');
+
+      await this.addStream({
+        id: 'demo_s',
+        game: 'Fortnite',
+        title: 'Squad action: Fortnite  ',
+        date: '2024-09-18',
+        state: { type: 'detection-finished', progress: 0 },
+      });
+      this.addClips(sDemoManual, 'demo_s', 'ReplayBuffer');
+      //const newClips = [getSharedResource('test/replay123.mp4')].map(path => ({ path }));
+      //this.addClips(newClips, 'demo123', 'Manual');
+      this.addAiClips(sDemoAi, { id: 'demo_s' });
+
+      // W
+      const wDemoAi: {
         path: string;
         aiClipInfo: IAiClipInfo;
         startTime: number;
@@ -649,7 +840,7 @@ export class HighlighterService extends PersistentStatefulService<IHighligherSta
       }[] = [
         {
           path: getSharedResource('w/w001.mp4'),
-          aiClipInfo: { moments: [{ type: 'kill' }] },
+          aiClipInfo: { moments: [{ type: 'deploy' }] },
           startTime: 0,
           endTime: 10,
         },
@@ -803,18 +994,30 @@ export class HighlighterService extends PersistentStatefulService<IHighligherSta
           startTime: 500,
           endTime: 510,
         },
+        {
+          path: getSharedResource('w/w027.mp4'),
+          aiClipInfo: { moments: [{ type: 'kill' }] },
+          startTime: 520,
+          endTime: 530,
+        },
+        {
+          path: getSharedResource('w/w028.mp4'),
+          aiClipInfo: { moments: [{ type: 'death' }] },
+          startTime: 540,
+          endTime: 550,
+        },
       ];
-      this.removeStream('demo123');
+      this.removeStream('demo_w');
       await this.addStream({
-        id: 'demo123',
+        id: 'demo_w',
         game: 'Fortnite',
-        title: 'Demo Stream',
-        date: '1726234396290',
+        title: 'Fortnite Solo Friday Fun  ',
+        date: '2024-09-19',
         state: { type: 'detection-finished', progress: 0 },
       });
       //const newClips = [getSharedResource('test/replay123.mp4')].map(path => ({ path }));
       //this.addClips(newClips, 'demo123', 'Manual');
-      this.addAiClips(newAiClips, { id: 'demo123' });
+      this.addAiClips(wDemoAi, { id: 'demo_w' });
     } else {
       let streamStarted = false;
       let aiRecordingInProgress = false;
