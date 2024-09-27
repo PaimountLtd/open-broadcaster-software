@@ -10,6 +10,8 @@ import { ITrovoStartStreamOptions } from '../platforms/trovo';
 import { IVideo } from 'obs-studio-node';
 import { ITwitterStartStreamOptions } from 'services/platforms/twitter';
 import { IInstagramStartStreamOptions } from 'services/platforms/instagram';
+import { TDisplayType } from 'services/settings-v2';
+import { TOutputOrientation } from 'services/restream';
 
 export enum EStreamingState {
   Offline = 'offline',
@@ -61,16 +63,18 @@ export interface IStreamInfo {
 
 export type TGoLiveChecklistItemState = 'not-started' | 'pending' | 'done' | 'failed';
 
+export interface IPlatformSettings {
+  twitch?: IPlatformFlags & ITwitchStartStreamOptions;
+  youtube?: IPlatformFlags & IYoutubeStartStreamOptions;
+  facebook?: IPlatformFlags & IFacebookStartStreamOptions;
+  tiktok?: IPlatformFlags & ITikTokStartStreamOptions;
+  trovo?: IPlatformFlags & ITrovoStartStreamOptions;
+  twitter?: IPlatformFlags & ITwitterStartStreamOptions;
+  instagram?: IPlatformFlags & IInstagramStartStreamOptions;
+}
+
 export interface IStreamSettings {
-  platforms: {
-    twitch?: IPlatformFlags & ITwitchStartStreamOptions;
-    youtube?: IPlatformFlags & IYoutubeStartStreamOptions;
-    facebook?: IPlatformFlags & IFacebookStartStreamOptions;
-    tiktok?: IPlatformFlags & ITikTokStartStreamOptions;
-    trovo?: IPlatformFlags & ITrovoStartStreamOptions;
-    twitter?: IPlatformFlags & ITwitterStartStreamOptions;
-    instagram?: IPlatformFlags & IInstagramStartStreamOptions;
-  };
+  platforms: IPlatformSettings;
   customDestinations: ICustomStreamDestination[];
   advancedMode: boolean;
 }
@@ -87,6 +91,7 @@ export interface IGoLiveSettings extends IStreamSettings {
 export interface IPlatformFlags {
   enabled: boolean;
   useCustomFields: boolean;
+  display?: TDisplayType;
   video?: IVideo;
 }
 
