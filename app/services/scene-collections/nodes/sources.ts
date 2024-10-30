@@ -300,29 +300,37 @@ export class SourcesNode extends Node<ISchema, {}> {
     this.sourcesService;
 
     const promises: Promise<void>[] = [];
+    let sourceNotCreatedNames: string[] = [];
+
+    const sources = obs.createSources(sourceCreateData);
+
+    if (sourceCreateData.length !== sources.length) {
+      const sourcesNotCreated = sourceCreateData.filter(
+        source => !sources.some(s => s.name === source.name),
+      );
+      sourceNotCreatedNames = sourcesNotCreated.map(source => source.name);
+      console.error(
+        'Error during sources creation when loading scene collection.',
+        JSON.stringify(sourceNotCreatedNames.join(', ')),
+      );
+
+      const sourcesNotCreatedTypes = sourcesNotCreated.map(
+        source => this.sourcesService.sourceDisplayData[source.type]?.name,
+      );
+      remote.dialog.showMessageBox(Utils.getMainWindow(), {
+        title: 'Unsupported Sources',
+        type: 'warning',
+        message: `Scene items were removed because there were an error loading them: ${sourcesNotCreatedTypes.join(
+          ', ',
+        )}`,
+      });
+    }
 
     try {
-      const sources = obs.createSources(sourceCreateData);
-
-      if (sourceCreateData.length !== sources.length) {
-        const sourcesNotCreated = sourceCreateData.filter(
-          source => !sources.some(s => s.name === source.name),
-        );
-        const sourceNames = sourcesNotCreated.map(source => source.name).join(', ');
-        console.error(
-          'Error during sources creation when loading scene collection.',
-          JSON.stringify(sourcesNotCreated),
-        );
-
-        remote.dialog.showMessageBox(Utils.getMainWindow(), {
-          title: 'Unsupported Sources',
-          type: 'warning',
-          message: `Scene items were removed because there were an error loading them: ${sourceNames}`,
-        });
-      }
-
-      sources.forEach(async (source, index) => {
+      for (const index in sources) {
+        const source = sources[index];
         const sourceInfo = supportedSources[index];
+
         this.sourcesService.addSource(source, supportedSources[index].name, {
           channel: sourceInfo.channel,
           propertiesManager: sourceInfo.propertiesManager,
@@ -353,7 +361,12 @@ export class SourcesNode extends Node<ISchema, {}> {
         }
 
         if (sourceInfo.hotkeys) {
-          promises.push(supportedSources[index].hotkeys.load({ sourceId: sourceInfo.id }));
+          // don't attempt to create hotkey if the input does not exist
+          if (sourceNotCreatedNames.includes(source.name)) {
+            console.error('Attempt to create hotkey for source missing obs input: ', source.name);
+          } else {
+            promises.push(supportedSources[index].hotkeys.load({ sourceId: sourceInfo.id }));
+          }
         }
 
         this.sourceFiltersService.loadFilterData(
@@ -368,9 +381,9 @@ export class SourcesNode extends Node<ISchema, {}> {
             };
           }),
         );
-      });
+      }
     } catch (e: unknown) {
-      console.error('Error loading scene collection source nodes: ', e);
+      console.error('Error loading scene collection source node: ', e);
     }
 
     return new Promise(resolve => {
