@@ -220,6 +220,8 @@
   "Error generating TikTok stream credentials": "TikTokストリーム資格情報の生成エラーが発生しました",
   "You are already live on a another device": "すでに別のデバイスでライブ配信中です",
   "Connect your TikTok account to stream to TikTok and one additional platform for free.": "TikTokアカウントに接続すると、TikTokともう1つ別のプラットフォームで無料でストリーミングできます。",
+  "Failed to authenticate with TikTok, re-login or re-merge TikTok account": "Failed to authenticate with TikTok, re-login or re-merge TikTok account",
+  "user might be blocked from streaming to TikTok but do not say they are. Refer them to TikTok": "user might be blocked from streaming to TikTok but do not say they are. Refer them to TikTok",
   "While updating your Twitch channel info, some tags were removed due to moderation rules: %{tags}": "Twitchチャンネル情報の更新中に、モデレーションルールによりいくつかのタグが削除されました：%{tags}",
   "Content Classification": "コンテンツの分類",
   "Stream features branded content": "ブランドコンテンツ提供のストリーム",
@@ -254,6 +256,6 @@
   "Disable Dual Output": "Dual Outputの無効化",
   "You can now reply to Twitch, YouTube and Facebook messages in Multistream chat. Click to learn more.": "マルチストリームチャットでTwitch、YouTube、Facebookのメッセージに返信できるようになりました。クリックして詳細をご覧ください。",
   "Multistream Chat Platform Support": "マルチストリームチャットプラットフォームのサポート",
-  "You have selected %{colorFormat} as Color Format. Formats other than NV12 and P010 are commonly used for recording, and might incur high CPU usage or the streaming platform might not support it. Go to Settings -> Advanced -> Video to review.": "You have selected %{colorFormat} as Color Format. Formats other than NV12 and P010 are commonly used for recording, and might incur high CPU usage or the streaming platform might not support it. Go to Settings -> Advanced -> Video to review.",
-  "TikTok Audience": "TikTok Audience"
+  "You have selected %{colorFormat} as Color Format. Formats other than NV12 and P010 are commonly used for recording, and might incur high CPU usage or the streaming platform might not support it. Go to Settings -> Advanced -> Video to review.": "カラーフォーマットとして%{colorFormat}を選択しました。NV12とP010以外のフォーマットは録画によく使われますが、CPU使用率が高くなったり、ストリーミングプラットフォームが対応していない場合があります。[設定] -> [詳細] -> [ビデオ]で確認してください。",
+  "TikTok Audience": "TikTok視聴者"
 }

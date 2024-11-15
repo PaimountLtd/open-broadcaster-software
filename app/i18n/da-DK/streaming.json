@@ -220,6 +220,8 @@
   "Error generating TikTok stream credentials": "Fejl ved generering af legitimationsoplysninger til TikTok-stream",
   "You are already live on a another device": "Du er allerede live på en anden enhed",
   "Connect your TikTok account to stream to TikTok and one additional platform for free.": "Tilknyt din TikTok-konto for at streame gratis til TikTok og en ekstra platform.",
+  "Failed to authenticate with TikTok, re-login or re-merge TikTok account": "Failed to authenticate with TikTok, re-login or re-merge TikTok account",
+  "user might be blocked from streaming to TikTok but do not say they are. Refer them to TikTok": "user might be blocked from streaming to TikTok but do not say they are. Refer them to TikTok",
   "While updating your Twitch channel info, some tags were removed due to moderation rules: %{tags}": "Under opdateringen af dine Twitch-kanaloplysninger blev nogle tags fjernet på grund af moderationsregler: %{tags}",
   "Content Classification": "Klassificering af indhold",
   "Stream features branded content": "Stream har branded indhold",
@@ -254,6 +256,6 @@
   "Disable Dual Output": "Deaktiver Dual Output",
   "You can now reply to Twitch, YouTube and Facebook messages in Multistream chat. Click to learn more.": "Du kan nu svare på Twitch-, YouTube- og Facebook-beskeder i Multistream-chat. Klik for at få mere at vide.",
   "Multistream Chat Platform Support": "Understøttelse af multistream-chatplatform",
-  "You have selected %{colorFormat} as Color Format. Formats other than NV12 and P010 are commonly used for recording, and might incur high CPU usage or the streaming platform might not support it. Go to Settings -> Advanced -> Video to review.": "You have selected %{colorFormat} as Color Format. Formats other than NV12 and P010 are commonly used for recording, and might incur high CPU usage or the streaming platform might not support it. Go to Settings -> Advanced -> Video to review.",
-  "TikTok Audience": "TikTok Audience"
+  "You have selected %{colorFormat} as Color Format. Formats other than NV12 and P010 are commonly used for recording, and might incur high CPU usage or the streaming platform might not support it. Go to Settings -> Advanced -> Video to review.": "Du har valgt %{colorFormat} som farveformat. Der bruges ofte andre formater end NV12 og P010 til optagelse, og det kan medføre højt CPU-forbrug, eller også understøtter streamingplatformen dem muligvis ikke. Gå til Indstillinger -> Avanceret -> Video for at gennemgå indstillingen.",
+  "TikTok Audience": "TikTok-publikum"
 }

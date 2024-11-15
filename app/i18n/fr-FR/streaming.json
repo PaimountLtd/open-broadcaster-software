@@ -220,6 +220,8 @@
   "Error generating TikTok stream credentials": "Erreur lors de la génération des identifiants de stream TikTok",
   "You are already live on a another device": "Tu es déjà en direct sur un autre dispositif",
   "Connect your TikTok account to stream to TikTok and one additional platform for free.": "Connecte ton compte TikTok pour diffuser sur TikTok et une plateforme supplémentaire gratuitement.",
+  "Failed to authenticate with TikTok, re-login or re-merge TikTok account": "Failed to authenticate with TikTok, re-login or re-merge TikTok account",
+  "user might be blocked from streaming to TikTok but do not say they are. Refer them to TikTok": "user might be blocked from streaming to TikTok but do not say they are. Refer them to TikTok",
   "While updating your Twitch channel info, some tags were removed due to moderation rules: %{tags}": "Lors de la mise à jour des infos de ta chaîne Twitch, certains libellés ont été supprimés en raison des règles de modération : %{tags}",
   "Content Classification": "Classification du contenu",
   "Stream features branded content": "Le stream propose du contenu de marque",
@@ -254,6 +256,6 @@
   "Disable Dual Output": "Désactiver le Dual Output",
   "You can now reply to Twitch, YouTube and Facebook messages in Multistream chat. Click to learn more.": "Tu peux désormais répondre aux messages de Twitch, YouTube et Facebook dans le chat Multistream. Clique pour en savoir plus.",
   "Multistream Chat Platform Support": "Prise en charge de la plateforme de chat multistreaming",
-  "You have selected %{colorFormat} as Color Format. Formats other than NV12 and P010 are commonly used for recording, and might incur high CPU usage or the streaming platform might not support it. Go to Settings -> Advanced -> Video to review.": "You have selected %{colorFormat} as Color Format. Formats other than NV12 and P010 are commonly used for recording, and might incur high CPU usage or the streaming platform might not support it. Go to Settings -> Advanced -> Video to review.",
-  "TikTok Audience": "TikTok Audience"
+  "You have selected %{colorFormat} as Color Format. Formats other than NV12 and P010 are commonly used for recording, and might incur high CPU usage or the streaming platform might not support it. Go to Settings -> Advanced -> Video to review.": "Tu as sélectionné %{colorFormat} comme format de couleur. Les formats autres que NV12 et P010 sont couramment utilisés pour l’enregistrement et peuvent entraîner une utilisation élevée du CPU ou bien la plateforme de streaming peut ne pas les prendre en charge. Va dans Paramètres -> Avancés -> Vidéo à revoir.",
+  "TikTok Audience": "Audience TikTok"
 }
